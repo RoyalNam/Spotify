@@ -1,0 +1,17 @@
+.cart {
+    border-radius: 8px;
+    color: var(--white-color);
+    padding: 16px;
+    background-color: var(--secondary-color);
+    + .cart {
+        margin-top: 24px;
+    }
+}
+.cart-tit {
+    margin: 8px 0;
+    font-weight: 500;
+}
+.cart-desc {
+    font-size: 1.3rem;
+    margin-bottom: 22px;
+}
