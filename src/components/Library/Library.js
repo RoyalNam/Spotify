@@ -10,7 +10,7 @@ import { BiSearch, BiSolidPlaylist } from 'react-icons/bi';
 
 const cx = classNames.bind(styles);
 
-function Library({ user, small }) {
+function Library({ user, small, url, title, author }) {
     const CART_wrapper = [
         { heading: 'Create your first playlist', desc: "It's easy, we'll help you", title: 'Create playlist' },
         {
@@ -23,12 +23,11 @@ function Library({ user, small }) {
         <>
             {user ? (
                 <div className={cx('playlist-wrapper', { small })}>
-                    <img className={cx('playlist-img')} src={images.demo} alt="Img" />
+                    <img className={cx('playlist-img')} src={url} alt={title} />
                     <div className={cx('playlist-info')}>
-                        <h4>Play list</h4>
+                        <h4>{title}</h4>
                         <div className={cx('playlist-desc')}>
-                            <span>Playlist</span>
-                            <span>BeBetter</span>
+                            <span>{author}</span>
                         </div>
                     </div>
                 </div>
@@ -37,11 +36,6 @@ function Library({ user, small }) {
                     {CART_wrapper.map((cart, index) => (
                         <Cart key={index} heading={cart.heading} desc={cart.desc} title={cart.title} />
                     ))}
-                    {/* <Cart
-                        heading={'Create your first playlist'}
-                        desc={"It's easy, we'll help you"}
-                        title={'Create playlist'}
-                    /> */}
                     <Footer />
                 </>
             )}

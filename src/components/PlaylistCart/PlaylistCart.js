@@ -6,8 +6,9 @@ import { BsFillPlayFill } from 'react-icons/bs';
 import Button from '../Button/Button';
 
 import getAccessToken from '~/utils/accessToken ';
-import getCategoryList from '~/utils/category';
+import { getPlayLists } from '~/utils/getData';
 import { Link } from 'react-router-dom';
+import config from '~/Config';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +19,7 @@ function PlaylistCart() {
         const fetchData = async () => {
             try {
                 const accessToken = await getAccessToken();
-                const categoryList = await getCategoryList(accessToken);
+                const categoryList = await getPlayLists(accessToken);
                 setCategories(categoryList);
             } catch (error) {
                 console.error('Error:', error);
@@ -38,7 +39,7 @@ function PlaylistCart() {
             </div>
             <div className={cx('cart-list')}>
                 {categories.map((category) => (
-                    <div key={category.id} className={cx('cart-item')}>
+                    <Link to={config.routes.playlist} key={category.id} className={cx('cart-item')}>
                         <div className={cx('img-block')}>
                             <img src={category.icons[0].url} alt={category.name} className={cx('img')} />
                             <BsFillPlayFill className={cx('btn-play')} />
@@ -47,7 +48,7 @@ function PlaylistCart() {
                         <Link className={cx('desc')} to={`/playlist/${category.id}`}>
                             {category.name}
                         </Link>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

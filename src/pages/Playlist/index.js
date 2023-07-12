@@ -3,7 +3,7 @@ import MainLayout from '~/Layout/MainLayout/MainLayout';
 import ContentPlaylist from '~/components/ContentPlaylist/ContentPlaylist';
 import HeaderPlaylist from '~/components/HeaderPlaylist/HeaderPlaylist';
 import getAccessToken from '~/utils/accessToken ';
-import getCategoryList from '~/utils/category';
+import getCategoryList from '~/utils/getData';
 
 function Playlist() {
     return (

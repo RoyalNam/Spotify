@@ -1,12 +1,32 @@
 .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .list-song {
         width: 100%;
         text-align: left;
     }
 }
-.song-item {
-    padding-top: 32px;
-    padding-bottom: 32px;
+.title {
+    height: 64px;
 }
-.mt-32 {
+.song-item {
+    height: 54px;
+    padding: 12px 0;
+    cursor: pointer;
+    justify-content: space-between;
+    &:hover {
+        background-color: #2d2929;
+    }
+}
+.time-icon {
+    font-size: 2.2rem;
+}
+
+.song-content {
+    background-color: rebeccapurple;
+    color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
 }

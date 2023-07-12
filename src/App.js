@@ -3,6 +3,9 @@ import 'tippy.js/dist/tippy.css';
 import './index.scss';
 import { publicRouters } from './Router';
 function App() {
+    fetch('https://fakestoreapi.com/products')
+        .then((res) => res.json())
+        .then((json) => console.log(json));
     return (
         <Router>
             <div className="App">
